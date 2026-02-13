@@ -1,15 +1,5 @@
 # Automatisation-table-mortalite-et-calcul-prime-deces-Excel-VBA
 
-Voici le **README complet et professionnel**, optimisé pour GitHub avec :
-✅ **Contexte clair** (prime pure expliquée naturellement)
-✅ **Structure logique** (problème → solution → usage)
-✅ **Ton projet mis en valeur** (exemples concrets, captures)
-✅ **Style engageant** (phrases courtes, emojis pour aérer)
-
----
-
-# **📊 Construction d’une Table de Mortalité & Calcul de Prime Décès – Excel VBA**
-
 ## **🔍 Contexte : Pourquoi ce projet ?**
 
 En assurance décès, **l’assureur s’engage à verser un capital en cas de décès**, mais ne connaît ni la date du sinistre ni son coût réel. **La prime pure est au cœur du problème** : c’est le **coût technique du risque**, calculé comme la **valeur actuelle des engagements futurs** (capital × probabilité de décès à chaque âge), **sans marge ni frais**.
@@ -178,15 +168,7 @@ Ce projet est sous licence **MIT** – libre d’utilisation, modification et di
 
 ## **📧 Contact**
 Pour toute question ou suggestion :
-📩 [votre.email@example.com](mailto:votre.email@example.com)
-🔗 [LinkedIn](https://www.linkedin.com/in/votre-profil/)
+📩 [votre.email@example.com](jordanjatsa@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/jordan-jatsa-lekane/)
 
----
-
-### **🎯 Pourquoi ce README fonctionne ?**
-1. **Clarté** : Structure logique (problème → solution → usage).
-2. **Engagement** : Captures d’écran, exemples concrets, cas d’usage.
-3. **Professionnalisme** : Tableaux, risques, licence, contribution.
-4. **Accessibilité** : Explications simples pour les non-actuaires.
-
-**Prochaine étape** : Ajoute tes captures d’écran et le fichier Excel pour finaliser le dépôt ! 🚀
+--
