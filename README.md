@@ -36,19 +36,20 @@ Pour éviter cela, **les normes Solvabilité II et IFRS 17 imposent aux assureur
 
 
 
-## **🚀 Fonctionnalités clés**
+### Fonctionnalités clés
 
-| Fonctionnalité               | Description                                                                 | Exemple d’utilisation                                                                 |
-|------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| **📥 Import des données INSEE** | Chargement automatique des données de mortalité depuis un fichier CSV.      | Importer la table `Table_INSEE_source.csv` pour générer la table de mortalité.       |
-| **📊 Construction de la table**  | Calcul des probabilités de décès (qx) et espérance de vie (ex).             | Générer une table prospective avec hypothèse d’amélioration de la longévité.         |
-| **💰 Calcul de la prime pure**   | Calcul de la prime pure pour un capital donné et un âge d’entrée.           | Calculer la prime pour un capital de 100 000 € à 30 ans avec un taux d’actualisation de 2%. |
-| **📈 Dashboard interactif**      | Visualisation des résultats (courbes de mortalité, primes par âge).         | Comparer l’impact de deux tables de mortalité (ex : INSEE vs. TGH05-10).              |
-| **📋 Export des résultats**      | Génération de rapports PDF et export des données en CSV.                   | Exporter les primes pures pour une analyse externe.                                  |
-
+| Fonctionnalité | Description | Exemple d’utilisation (dans le projet) |
+|---|---|---|
+| **Import automatique INSEE (TD 2025)** | Import et consolidation des données **INSEE TD 2025** (CSV) dans la feuille `Données_Brutes` (âges 0–120), prêtes pour les calculs. | Charger la table **TD 2025 – Homme (France)** pour alimenter automatiquement `Données_Brutes`. |
+| **Construction de la table de mortalité** | Génération de la feuille `Table_Mortalité` avec les colonnes actuarielles usuelles : \( q_x \), \( p_x \), \( l_x \), \( d_x \), \( L_x \), \( T_x \), \( e_x \). Remplissage via bouton/macro. | Cliquer sur **“Remplir les formules”** pour obtenir une table prête pour la tarification et le provisionnement. |
+| **Contrôles qualité (QA) intégrés** | Tests simples et auditables : bornes \( 0 \le q_x \le 1 \), cohérence \( p_x = 1 - q_x \), \( d_x = l_x \cdot q_x \), chaînage \( l_{x+1} = l_x - d_x \), monotonicité de \( l_x \), etc. | Détecter rapidement un mauvais import (décimal/%), un décalage d’âge, des lignes manquantes ou une incohérence de formules. |
+| **Tarification : calcul de prime pure** | Calcul de la **prime pure** d’un contrat décès via actualisation des flux probabilisés (hypothèse standard : décès en **milieu d’année**). Feuille `Prime_Pure` + tableau multi-âges + graphique. | Calculer la prime pour **30 ans**, **100 000 €**, **durée 30 ans**, **taux 2%**, puis visualiser l’évolution par âge (ex. 20–60 ans). |
+| **Provisions techniques (vision Solvabilité II)** | Calcul du **Best Estimate (BE)**, de la **Risk Margin** (approche **Cost of Capital – CoC = 6%**), puis de la **Provision S2 = BE + RM** dans `Provisions_Techniques et Solvabilité`. | Sur le cas principal **(Homme 40 ans, 200 000 €, 20 ans, taux 2%)**, obtenir **BE / RM / Provision S2** à la souscription *(t = 0, Janvier 2026)*. |
+| **Solvabilité II – Pilier 1 (SCR / MCR)** | Estimation du **SCR** (modules : mortalité, longévité, rachat + agrégation) et du **MCR**, puis calcul des **ratios de couverture** : \( \frac{FP}{SCR} \) et \( \frac{FP}{MCR} \). | Avec **FP = 25 000 €**, afficher **Ratio SCR** et **Ratio MCR** et conclure sur la conformité. |
+| **Comparaison Décès / Vie / Mixte** | Paramètre **Type de contrat** (Décès / Vie / Mixte) : les cashflows projetés, le BE, la RM et le SCR s’adaptent au profil de garantie. | Comparer les résultats et montrer l’impact sur **provisions** et **solvabilité** selon le type de garantie. |
+| **Visualisations automatiques** | Graphiques démographiques ( \( l_x \), \( q_x \), \( e_x \), \( d_x \) ) et solvabilité (décomposition SCR, ratios SCR/MCR) dans la feuille `Graphiques`. | Mettre à jour les graphiques après recalcul pour analyser rapidement la mortalité et les indicateurs de solvabilité. |
 ---
-
-## **📂 Structure du projet**
+### **📂 Structure du projet**
 
 ```
 MORTEX/
