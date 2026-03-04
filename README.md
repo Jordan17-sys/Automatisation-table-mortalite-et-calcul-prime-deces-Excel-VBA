@@ -1,10 +1,11 @@
-# Automatisation et Modélisation actuarielle – Assurance Décès (Excel + VBA)
+## Automatisation et Modélisation actuarielle – Assurance Décès (Excel + VBA)
 
 **Construction d'une table de mortalité, calcul de primes pures, estimation des provisions techniques, et évaluation SCR d’un contrat décès (Solvabilité II – Pilier 1).**  
-Outil développé sous **Excel VBA** à partir des **données INSEE (TD 2025, Homme, France)**.
----
 
-## 🎯 Objectif du projet
+Outil développé sous **Excel VBA** à partir des **données INSEE (TD 2025, Homme, France)**.
+
+---
+### 🎯 Objectif du projet
 
 L’assurance décès repose sur un risque intrinsèquement incertain (date du sinistre, coût).  
 Ce projet vise à **automatiser la chaîne actuarielle complète** :
@@ -14,19 +15,7 @@ Ce projet vise à **automatiser la chaîne actuarielle complète** :
 L’objectif est de proposer un modèle **structuré, paramétrable et auditable**, développée sous Excel avec automatisation VBA, réduisant les manipulations manuelles (risque d’erreur, lenteur, difficulté d’audit).
 
 ---
-
-Il intègre de manière cohérente :
-
-✅ La tarification actuarielle
-✅ Le calcul du Best Estimate
-✅ Une analyse de sensibilité
-✅ Une approche simplifiée inspirée de Solvabilité II
-
-L’objectif est de démontrer la cohérence entre tarification, provisionnement et gestion du risque, dans un cadre structuré et professionnel.
-
-
-
-## **🔍 Contexte : Pourquoi ce projet ?**
+### **Contexte : Pourquoi ce projet ?**
 
 En assurance décès, **l’assureur s’engage à verser un capital en cas de décès**, mais ne connaît ni la date du sinistre ni son coût réel. **La prime pure est au cœur du problème** : c’est le **coût technique du risque**, calculé comme la **valeur actuelle des engagements futurs** (capital × probabilité de décès à chaque âge), **sans marge ni frais**.
 
@@ -34,21 +23,13 @@ En assurance décès, **l’assureur s’engage à verser un capital en cas de d
 - **Sous-tarification** → Les cotisations ne couvrent pas les sinistres (pertes financières).
 - **Sur-tarification** → Les clients fuient vers la concurrence (perte de parts de marché).
 
-Pour éviter cela, **les normes Solvabilité II et IFRS 17 imposent aux assureurs de calculer cette prime pure à partir d’une table de mortalité fiable**, tout en justifiant leurs hypothèses auprès des régulateurs. **Problème** : Les outils actuels (Excel manuel, scripts non documentés) sont lents, sources d’erreurs et difficiles à auditer.
+Pour éviter cela, **les normes Solvabilité II et IFRS 17 imposent aux assureurs de calculer cette prime pure à partir d’une table de mortalité fiable**, tout en justifiant leurs hypothèses auprès des régulateurs.
+
+**Problème** : Les outils actuels (Excel manuel, scripts non documentés) sont lents, sources d’erreurs et difficiles à auditer.
 
 ---
+<img src="Graphs/Best_Estimate_Evolution.png" alt="Evolution Best Estimate" />
 
-## **💡 La solution proposée**
-
-Ce projet **automatise la construction d’une table de mortalité et le calcul des primes pures** sous Excel VBA, pour :
-✅ **Éliminer les erreurs** (nettoyage automatique des données INSEE, formules validées).
-✅ **Gagner du temps** (passer de 2 jours à 2 heures pour une tarification complète).
-✅ **Améliorer la traçabilité** (logs des modifications, documentation claire).
-✅ **Faciliter les analyses** (impact d’un changement de taux d’actualisation ou de table).
-
-**Résultat** : Un outil **fiable, rapide et conforme**, utilisable par les actuaires, risk managers et directions financières pour **prendre des décisions éclairées sur la tarification**.
-
----
 
 ## **🚀 Fonctionnalités clés**
 
