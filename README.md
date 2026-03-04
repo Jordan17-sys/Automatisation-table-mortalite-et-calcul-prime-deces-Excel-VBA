@@ -52,21 +52,27 @@ Pour éviter cela, **les normes Solvabilité II et IFRS 17 imposent aux assureur
 ### **📂 Structure du projet**
 
 ```
-MORTEX/
-│
-├── README.md                  # Documentation du projet (ce fichier)
-├── MORTEX.xlsm                # Fichier Excel principal avec le code VBA
-│
-├── Documentation/             # Documents techniques et schémas
-│   ├── Cahier_des_charges.pdf # Cahier des charges détaillé
-│   └── Schema_Architecture.png # Schéma de l'architecture du projet
-│
-├── Data/                      # Données sources
-│   └── Table_INSEE_source.csv # Données de mortalité INSEE
-│
-└── Captures/                  # Captures d'écran des résultats
-    ├── Dashboard.png          # Exemple de dashboard interactif
-    └── Exemple_Calcul.png     # Exemple de calcul de prime pure
+.
+├── Documentation/
+│   └── PROJET Actuariat 2026 VS final.docx
+├── Modèle Excel/
+│   └── Prime_Solvabilite VersionFinal.xlsm
+├── Graphs/                
+│   ├── Esperance de vie France2025.PNG
+│   ├── Nbre Deces par age France 2025.PNG
+│   ├── Provision_technique.PNG  (ou Technique de provisionnement.PNG)
+│   └── bouton_prime_pure.PNG
+├── VBA_Code/                   
+│   ├── Creation_Prime_Pure.bas
+│   ├── Creer_Graphiques_Mortalite.bas
+│   ├── Creer_Table_Mortalite.bas
+│   ├── Import_Données.bas
+│   ├── Importer_Donnees_INSEE_2025.bas
+│   └── Remplir_Formules_Table_M.bas
+├── data/
+├── Video de presentation projet
+└── README.md
+
 ```
 
 ---
