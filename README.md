@@ -4,7 +4,10 @@
 
 Outil développé sous **Excel VBA** à partir des **données INSEE (TD 2025, Homme, France)**.
 
-<img src="Graphs/bouton_prime_pure.PNG" alt="Bouton Prime Pure" />
+<div align="center">
+  <img src="Graphs/bouton_prime_pure.PNG" alt="Bouton Prime Pure" width="40%" />
+  <img src="Graphs/Provision_technique.PNG" alt="Provision et Solvabilité II " width="55%" />
+</div>
 
 ---
 ### 🎯 Objectif du projet
