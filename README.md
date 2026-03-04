@@ -70,95 +70,148 @@ MORTEX/
 ```
 
 ---
+### 📌 Périmètre (cas d’étude principal)
 
-## **🛠️ Guide d’utilisation**
+**Produit :** Contrat décès temporaire (20 ans)  
+- Assuré : **Homme 40 ans** (table **TD 2025 INSEE**)  
+- Capital garanti : **200 000 €** (versé si décès pendant 20 ans)  
+- Prime : **prime unique 5 234 €** à la souscription  
+- Taux d’actualisation : **2%**  
+- Fonds propres disponibles : **25 000 €**  
+- Risk Margin : approche **Cost of Capital (CoC = 6%)**
 
-### **1️⃣ Prérequis**
-- **Excel 2016 ou supérieur** (avec macros activées).
-- **Données INSEE** : Un fichier CSV contenant les taux de mortalité par âge (exemple fourni dans `Data/`).
-
-### **2️⃣ Installation**
-1. Téléchargez le dépôt GitHub (`git clone` ou téléchargement ZIP).
-2. Ouvrez `MORTEX.xlsm` et activez les macros si demandé.
-
-### **3️⃣ Utilisation pas à pas**
-1. **Importer les données** :
-   - Cliquez sur le bouton **"Importer données INSEE"** et sélectionnez `Table_INSEE_source.csv`.
-   - *Exemple de format attendu* :
-     ```
-     Age;Taux_mortalite
-     0;0.0005
-     1;0.0003
-     ...
-     ```
-
-2. **Générer la table de mortalité** :
-   - Allez dans l’onglet **"Table de mortalité"**.
-   - Sélectionnez les paramètres (ex : hypothèse d’amélioration de la longévité).
-   - Cliquez sur **"Générer la table"**.
-
-3. **Calculer la prime pure** :
-   - Renseignez dans l’onglet **"Prime pure"** :
-     - Âge d’entrée (ex : 30 ans).
-     - Capital assuré (ex : 100 000 €).
-     - Taux d’actualisation (ex : 2%).
-   - Cliquez sur **"Calculer la prime"**.
-
-4. **Visualiser les résultats** :
-   - Consultez le **dashboard interactif** pour voir les courbes de mortalité et l’évolution des primes par âge.
-   - Exportez les résultats en PDF ou CSV si besoin.
+**Modules SCR étudiés (simplifiés) :**
+- Mortalité (choc **+15%**)
+- Longévité (choc **-20%**)
+- Rachat (rachats massifs **5%**)
+- Marché / contrepartie / opérationnel : **hors périmètre**
 
 ---
 
-## **📸 Captures d’écran**
+### ✅ Résultats clés (Décès temporaire) — à la souscription *(t = 0, Janvier 2026)*
 
-### **1️⃣ Dashboard interactif**
-![Dashboard](Captures/Dashboard.png)
-*Visualisation des probabilités de décès et des primes pures par âge.*
+Sur le cas d’étude (Homme 40 ans, capital 200 000 €, durée 20 ans, prime unique 5 234 €, taux 2%), le modèle aboutit aux résultats suivants à la souscription *(t = 0)* :
 
-### **2️⃣ Exemple de calcul**
-![Exemple de calcul](Captures/Exemple_Calcul.png)
-*Calcul de la prime pure pour un capital de 100 000 € à 30 ans.*
+- **Best Estimate (BE)** : **8 363 €**
+- **Risk Margin (CoC 6%)** : **889 €**
+- **Provision Solvabilité II (BE + RM)** : **9 252 €**
+- **SCR total agrégé** : **2 069 €**
+  - Mortalité : **1 388 €**
+  - Longévité : **1 850 €**
+  - Rachat : **463 €**
+- **MCR** : **517 €**
+- **Fonds propres** : **25 000 €**
+  - **Ratio SCR = 1 208,4%** (conforme)
+  - **Ratio MCR = 4 833,8%** (conforme)
 
----
-
-## **🔍 Exemples concrets**
-
-### **Cas 1 : Impact d’un changement de table de mortalité**
-- **Scénario** : Comparer les primes pures calculées avec la table INSEE 2020 vs. TGH05-10.
-- **Résultat** : La prime pour un assuré de 40 ans passe de **120 €/an** (INSEE) à **105 €/an** (TGH05-10), soit une **réduction de 12,5%** grâce à l’amélioration de la longévité.
-
-### **Cas 2 : Sensibilité au taux d’actualisation**
-- **Scénario** : Calculer la prime pour un capital de 50 000 € à 50 ans avec un taux de 1% vs. 3%.
-- **Résultat** :
-  - Taux à 1% → **Prime = 250 €/an**.
-  - Taux à 3% → **Prime = 200 €/an** (baisse de 20% due à l’actualisation plus forte).
+Conclusion : les fonds propres (25 000 €) sont largement supérieurs au capital requis (SCR 2 069 €) → **situation conforme**.
 
 ---
 
-## **📌 Pourquoi utiliser ce projet ?**
+### 📊 Synthèse comparative (Décès / Vie / Mixte)
 
-| Public cible          | Bénéfices                                                                 |
-|-----------------------|---------------------------------------------------------------------------|
-| **Actuaires**         | Automatisation des calculs, réduction des erreurs, conformité réglementaire. |
-| **Risk Managers**     | Analyse rapide des scénarios (choc de mortalité, taux d’actualisation).   |
-| **Directions**        | Prise de décision éclairée sur la tarification et la compétitivité.       |
-| **Étudiants/Enseignants** | Outil pédagogique pour comprendre les tables de mortalité et la tarification. |
+Les trois scénarios sont évalués sur une base commune (âge 40, durée 20, capital 200 000 €, prime 5 234 €, taux 2%, CoC 6%, FP 25 000 €).
 
----
+| Type | Best Estimate | Risk Margin | Provision S2 | SCR total | MCR | Ratio SCR | Ratio MCR |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **Décès** | 8 363 € | 889 € | 9 252 € | 2 069 € | 517 € | 1 208,4% | 4 833,8% |
+| **Vie** | 127 322 € | 22 203 € | 149 526 € | 33 435 € | 8 359 € | 74,8% *(non conforme)* | 299,1% |
+| **Mixte** | 135 685 € | 23 092 € | 158 778 € | 35 504 € | 8 876 € | 70,4% *(non conforme)* | 281,7% |
 
-## **🛡️ Gestion des risques**
-
-| Risque                          | Mitigation                                                                 |
-|---------------------------------|----------------------------------------------------------------------------|
-| **Données erronées**            | Nettoyage automatique des données (vérification des formats, valeurs aberrantes). |
-| **Erreurs de calcul**           | Tests unitaires pour valider les formules (ex : somme des probabilités = 1). |
-| **Non-conformité réglementaire** | Documentation claire des hypothèses et méthodologies.                     |
-| **Performance lente**           | Optimisation du code VBA (boucles, tableaux dynamiques).                  |
+le produit **Décès** est peu provisionnant / peu consommateur de capital, tandis que **Vie** et **Mixte** nécessitent davantage de fonds propres (ratio SCR < 100% avec FP = 25k€).
 
 ---
 
-## **🤝 Contribuer**
+## 🧱 Données & méthode
+
+### Source de données
+- Tables de mortalité **INSEE TD 2025** (Homme, France)
+- Variables exploitées : \( l_x, q_x, d_x, e_x \) (granularité annuelle, âges 0 à 120)
+
+### Principe général
+- Actualisation au taux \( i \), avec \( v = \frac{1}{1 + i} \)
+- Hypothèse : **décès en moyenne en milieu d’année** (actualisation en \( t + 0.5 \))
+
+---
+
+### Architecture Excel (5 feuilles)
+
+1. **Données_Brutes**  
+   Stockage consolidé des données INSEE importées via macro.
+
+2. **Table_Mortalité**  
+   Table nettoyée et exploitable : age, \( q_x \), \( p_x \), \( l_x \), \( d_x \), etc.
+
+3. **Prime_Pure**  
+   Calcul des primes pures (outil de tarification + tableau multi-âges + graphique).
+
+4. **Graphiques**  
+   Graphiques démographiques (lx, qx, ex, dx) + solvabilité (SCR, ratios).
+
+5. **Provisions_Techniques et Solvabilité**  
+   Calcul **BE**, **RM (CoC)**, **Provision S2**, **SCR**, **MCR**, ratios.
+
+---
+
+### 🛠️ Guide d’utilisation
+
+#### 1️⃣ Prérequis
+- **Excel 2016+** (macros activées)
+- **CSV INSEE TD 2025** (taux par âge) dans `Data/`
+
+#### 2️⃣ Installation
+1. Télécharger le repo (ZIP ou `git clone`)
+2. Ouvrir `MORTEX.xlsm` → **Activer les macros**
+
+#### 3️⃣ Workflow (pas à pas)
+1. **Importer INSEE**
+   - Feuille `Données_Brutes` → bouton **Importer données INSEE**
+   - Sélectionner le CSV (ex. `Data/TD2025_Hommes.csv`)
+
+2. **Construire la table**
+   - Feuille `Table_Mortalité` → bouton **Remplir les formules** / **Générer la table**
+   - Colonnes calculées : \( qx \), \( px \), \( lx \), \( dx \), \( Lx \), \( Tx \), \( ex \)
+
+3. **Calculer la prime pure**
+   - Feuille `Prime_Pure` → saisir **Âge**, **Capital**, **Durée**, **Taux**
+   - Bouton **Calculer la prime**
+
+4. **Solvabilité II**
+   - Feuille `Provisions_Techniques et Solvabilité` → lancer le calcul
+   - Sorties : **BE**, **RM (CoC 6%)**, **Provision S2**, **SCR**, **MCR**, **ratios FP/SCR & FP/MCR**
+---
+
+
+### ▶️ Utilisation (Excel VBA)
+
+1. Ouvrir le fichier `.xlsm`
+2. **Activer les macros**
+3. Importer / mettre à jour les données INSEE via bouton/macro
+4. Lancer les calculs (prime / provisions / solvabilité)
+5. Consulter tableaux & graphiques (onglets dédiés)
+
+---
+
+### ⚠️ Limites
+
+- Taux d’actualisation **constant** (2%)
+- SCR en approche **simplifiée** (formule standard simplifiée)
+- Hors périmètre : marché, contrepartie, opérationnel
+- Pas de projection dynamique des primes futures
+- Hypothèse décès milieu d’année
+
+---
+
+### 🚀 Améliorations possibles
+
+- Courbe des taux sans risque (term structure)
+- Modélisation stochastique de la mortalité
+- Ajout du module marché / ALM simplifié
+- Simulation Monte Carlo, approche ORSA
+
+---
+
+### **🤝 Contribuer**
 
 Vous souhaitez améliorer ce projet ?
 1. **Forkez** le dépôt (`git fork`).
@@ -166,19 +219,7 @@ Vous souhaitez améliorer ce projet ?
 3. **Commitez vos changements** (`git commit -m "Ajout de la fonction X"`).
 4. **Pushez** (`git push origin feature/ma-fonctionnalite`).
 5. **Ouvrez une Pull Request** pour revue.
-
-**Idées d’améliorations** :
-- Ajouter une interface utilisateur plus intuitive.
-- Intégrer des données de mortalité internationales.
-- Automatiser les tests avec un framework VBA.
-
 ---
-
-## **📜 Licence**
-Ce projet est sous licence **MIT** – libre d’utilisation, modification et distribution.
-
----
-
 ## **📧 Contact**
 Pour toute question ou suggestion :
 📩 [votre.email@example.com](jordanjatsa@gmail.com)
