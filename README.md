@@ -4,6 +4,8 @@
 
 Outil développé sous **Excel VBA** à partir des **données INSEE (TD 2025, Homme, France)**.
 
+<img src="Graphs/bouton_prime_pure.PNG" alt="Bouton Prime Pure" />
+
 ---
 ### 🎯 Objectif du projet
 
@@ -28,7 +30,7 @@ Pour éviter cela, **les normes Solvabilité II et IFRS 17 imposent aux assureur
 **Problème** : Les outils actuels (Excel manuel, scripts non documentés) sont lents, sources d’erreurs et difficiles à auditer.
 
 ---
-<img src="Graphs/Best_Estimate_Evolution.png" alt="Evolution Best Estimate" />
+
 
 
 ## **🚀 Fonctionnalités clés**
