@@ -1,4 +1,4 @@
-# Automatisation-table-mortalite-et-calcul-prime-deces-Excel-VBA
+# Automatisation et Modélisation actuarielle – Assurance Décès (Excel + VBA)
 
 ## **🔍 Contexte : Pourquoi ce projet ?**
 
