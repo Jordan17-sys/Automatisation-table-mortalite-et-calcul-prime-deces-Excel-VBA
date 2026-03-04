@@ -167,7 +167,7 @@ le produit **Décès** est peu provisionnant / peu consommateur de capital, tand
 
 #### 2️⃣ Installation
 1. Télécharger le repo (ZIP ou `git clone`)
-2. Ouvrir `MORTEX.xlsm` → **Activer les macros**
+2. Ouvrir `Prime_Solvabilite VersionFinal.xlsm` → **Activer les macros**
 
 #### 3️⃣ Workflow (pas à pas)
 1. **Importer INSEE**
